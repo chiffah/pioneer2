@@ -6,6 +6,7 @@ import { EnvelopeIcon, LabelIcon, LockIcon, VoteIcon } from '@/common/components
 import { ColumnGapBlock } from '@/common/components/page/PageContent'
 
 const locksMap: Record<LockType, ReactElement> = {
+  Staking: <LockIcon />,
   Voting: <VoteIcon />,
   'Council Candidate': <LabelIcon />,
   Councilor: <LockIcon />,
@@ -30,7 +31,7 @@ export interface AccountLocksProps {
 }
 
 export const AccountLocks = ({ locks }: AccountLocksProps) => {
-  if (!locks || !locks.length) {
+  if (!locks?.length) {
     return null
   }
 
